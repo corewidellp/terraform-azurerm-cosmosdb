@@ -1,4 +1,4 @@
-# Output account reference 
+# Output account reference
 output "cosmosdb_id" {
   value       = azurerm_cosmosdb_account.this.id
   description = "Cosmos DB Account ID"
@@ -41,12 +41,6 @@ output "cosmosdb_secondary_readonly_key" {
   value       = azurerm_cosmosdb_account.this.secondary_readonly_key
   sensitive   = true
   description = "Cosmos DB Secondary Read Only Keys"
-}
-
-output "cosmosdb_connection_strings" {
-  value       = azurerm_cosmosdb_account.this.connection_strings
-  sensitive   = true
-  description = "Cosmos DB Connection Strings"
 }
 
 output "cosmosdb_systemassigned_identity" {

@@ -34,11 +34,6 @@ output "cosmosdb_secondary_readonly_key" {
   sensitive = true
 }
 
-output "cosmosdb_connection_strings" {
-  value     = module.azure_cosmos_db.cosmosdb_connection_strings
-  sensitive = true
-}
-
 output "sql_db_id" {
   value = module.azure_cosmos_db.sql_db_id
 }

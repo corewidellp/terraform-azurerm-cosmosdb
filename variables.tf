@@ -66,12 +66,6 @@ variable "max_staleness_prefix" {
   default     = 100000
 }
 
-variable "auto_failover" {
-  type        = bool
-  description = "Enable automatic fail over for this Cosmos DB account - can be either true or false"
-  default     = false
-}
-
 variable "free_tier" {
   type        = bool
   description = "Enable Free Tier pricing option for this Cosmos DB account - can be either true or false"
