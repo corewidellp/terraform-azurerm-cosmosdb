@@ -2,7 +2,6 @@ resource_group_name = "rg-sample-301"
 location            = "eastus"
 cosmos_account_name = "samplecosmosacct301"
 cosmos_api          = "sql"
-multi_region_write  = true
 geo_locations = [
   {
     geo_location      = "eastus"

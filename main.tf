@@ -20,7 +20,6 @@ resource "azurerm_cosmosdb_account" "this" {
   public_network_access_enabled = var.public_network_access_enabled
   ip_range_filter               = var.ip_firewall_enabled == true ? local.firewall_ips : null
 
-  enable_multiple_write_locations = var.multi_region_write
   key_vault_key_id                = var.key_vault_name != "" ? data.azurerm_key_vault_key.this[0].versionless_id : null
 
   tags = local.tags

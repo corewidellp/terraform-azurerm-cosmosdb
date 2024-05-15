@@ -10,7 +10,6 @@ variable "location" {
 
 variable "cosmos_account_name" {}
 variable "cosmos_api" {}
-variable "multi_region_write" {}
 variable "geo_locations" {}
 variable "sql_dbs" {}
 variable "sql_db_containers" {}

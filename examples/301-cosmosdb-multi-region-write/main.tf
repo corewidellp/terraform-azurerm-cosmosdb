@@ -1,4 +1,4 @@
-# Azure provider version 
+# Azure provider version
 terraform {
   required_providers {
     azurerm = {
@@ -12,7 +12,7 @@ provider "azurerm" {
   features {}
 }
 
-# Resource group 
+# Resource group
 resource "azurerm_resource_group" "this" {
   name     = var.resource_group_name
   location = var.location
@@ -24,7 +24,6 @@ module "azure_cosmos_db" {
   location            = azurerm_resource_group.this.location
   cosmos_account_name = var.cosmos_account_name
   cosmos_api          = var.cosmos_api
-  multi_region_write  = var.multi_region_write
   geo_locations       = var.geo_locations
   sql_dbs             = var.sql_dbs
   sql_db_containers   = var.sql_db_containers

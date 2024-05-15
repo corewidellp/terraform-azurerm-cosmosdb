@@ -72,12 +72,6 @@ variable "free_tier" {
   default     = false
 }
 
-variable "multi_region_write" {
-  type        = bool
-  description = "Enable multiple write locations for this Cosmos DB account"
-  default     = false
-}
-
 variable "backup_enabled" {
   type        = bool
   description = "Enable backup for this Cosmos DB account"
