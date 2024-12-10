@@ -22,11 +22,12 @@ variable "firewall_ip" {
 variable "azure_portal_access" {
   type        = list(string)
   description = "List of ip address to enable the Allow access from the Azure portal behavior."
-  default     = ["104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"]
+  # defaults are taken from https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-configure-firewall
+  default = ["104.42.195.92/32", "40.76.54.131/32", "52.176.6.30/32", "52.169.50.45/32", "52.187.184.26/32"]
 }
 
 variable "azure_dc_access" {
   type        = list(string)
   description = "List of ip address to enable the Accept connections from within public Azure datacenters behavior."
-  default     = ["0.0.0.0"]
+  default     = []
 }

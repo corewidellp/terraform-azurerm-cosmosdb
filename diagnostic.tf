@@ -5,22 +5,22 @@ resource "azurerm_monitor_diagnostic_setting" "la" {
   target_resource_id         = azurerm_cosmosdb_account.this.id
   log_analytics_workspace_id = data.azurerm_log_analytics_workspace.this[each.key].id
 
-  log {
+  enabled_log {
     category = "DataPlaneRequests"
   }
 
-  log {
+  enabled_log {
     category = "PartitionKeyStatistics"
   }
 
-  log {
+  enabled_log {
     category = "ControlPlaneRequests"
   }
 
-  dynamic "log" {
+  dynamic "enabled_log" {
     for_each = local.diag_logs
     content {
-      category = log.value
+      category = enabled_log.value
     }
   }
 
@@ -36,7 +36,7 @@ resource "azurerm_monitor_diagnostic_setting" "sa" {
   target_resource_id = azurerm_cosmosdb_account.this.id
   storage_account_id = data.azurerm_log_analytics_workspace.this[each.key].id
 
-  log {
+  enabled_log {
     category = "DataPlaneRequests"
     retention_policy {
       enabled = each.value.enable_logs_retention_policy
@@ -44,7 +44,7 @@ resource "azurerm_monitor_diagnostic_setting" "sa" {
     }
   }
 
-  log {
+  enabled_log {
     category = "PartitionKeyStatistics"
     retention_policy {
       enabled = each.value.enable_logs_retention_policy
@@ -52,7 +52,7 @@ resource "azurerm_monitor_diagnostic_setting" "sa" {
     }
   }
 
-  log {
+  enabled_log {
     category = "ControlPlaneRequests"
     retention_policy {
       enabled = each.value.enable_logs_retention_policy
@@ -60,10 +60,10 @@ resource "azurerm_monitor_diagnostic_setting" "sa" {
     }
   }
 
-  dynamic "log" {
+  dynamic "enabled_log" {
     for_each = local.diag_logs
     content {
-      category = log.value
+      category = enabled_log.value
       retention_policy {
         enabled = each.value.enable_logs_retention_policy
         days    = each.value.logs_retention_days
@@ -84,22 +84,22 @@ resource "azurerm_monitor_diagnostic_setting" "eh" {
   target_resource_id             = azurerm_cosmosdb_account.this.id
   eventhub_authorization_rule_id = data.azurerm_eventhub_authorization_rule.this[each.key].id
 
-  log {
+  enabled_log {
     category = "DataPlaneRequests"
   }
 
-  log {
+  enabled_log {
     category = "PartitionKeyStatistics"
   }
 
-  log {
+  enabled_log {
     category = "ControlPlaneRequests"
   }
 
-  dynamic "log" {
+  dynamic "enabled_log" {
     for_each = local.diag_logs
     content {
-      category = log.value
+      category = enabled_log.value
     }
   }
 

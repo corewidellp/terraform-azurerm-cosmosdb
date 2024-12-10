@@ -19,7 +19,7 @@ resource "azurerm_cosmosdb_sql_container" "this" {
   resource_group_name    = data.azurerm_resource_group.this.name
   account_name           = azurerm_cosmosdb_account.this.name
   database_name          = each.value.db_name
-  partition_key_path     = each.value.partition_key_path
+  partition_key_paths    = each.value.partition_key_paths
   partition_key_version  = each.value.partition_key_version != null ? each.value.partition_key_version : 2
   throughput             = each.value.container_max_throughput != null ? null : each.value.container_throughout
   default_ttl            = each.value.default_ttl != null ? each.value.default_ttl : null

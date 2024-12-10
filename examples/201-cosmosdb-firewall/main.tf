@@ -28,7 +28,7 @@ module "azure_cosmos_db" {
   sql_db_containers             = var.sql_db_containers
   public_network_access_enabled = var.public_network_access_enabled
   ip_firewall_enabled           = var.ip_firewall_enabled
-  firewall_ip                   = var.firewall_ip
+  firewall_ip                   = toset(var.firewall_ip)
   depends_on = [
     azurerm_resource_group.this
   ]
