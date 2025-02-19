@@ -47,3 +47,15 @@ output "cosmosdb_systemassigned_identity" {
   value       = var.enable_systemassigned_identity ? zipmap(["tenant_id", "principal_id"], [azurerm_cosmosdb_account.this.identity[0].tenant_id, azurerm_cosmosdb_account.this.identity[0].principal_id]) : {}
   description = "Cosmos DB System Assigned Identity (Tenant ID and Principal ID)"
 }
+
+output "primary_mongodb_connection_string" {
+  value       = try(azurerm_cosmosdb_account.this.primary_mongodb_connection_string, null)
+  sensitive   = true
+  description = "Primary connection string to a MongoDB resource"
+}
+
+output "primary_readonly_mongodb_connection_string" {
+  value       = try(azurerm_cosmosdb_account.this.primary_readonly_mongodb_connection_string, null)
+  sensitive   = true
+  description = "Primary read-only connection string to a MongoDB resource"
+}
