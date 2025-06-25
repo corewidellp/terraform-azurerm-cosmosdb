@@ -27,3 +27,8 @@ variable "mongo_db_collections" {
   description = "List of Cosmos DB Mongo collections to create. Some parameters are inherited from cosmos account."
   default     = {}
 }
+
+variable "mongo_server_version" {
+  type        = string
+  description = "The Server Version of the MongoDB account to be created."
+}
