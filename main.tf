@@ -19,8 +19,8 @@ resource "azurerm_cosmosdb_account" "this" {
   kind                          = var.cosmos_api == "mongo" ? "MongoDB" : "GlobalDocumentDB"
   public_network_access_enabled = var.public_network_access_enabled
   ip_range_filter               = var.ip_firewall_enabled == true ? local.firewall_ips : null
-
-  key_vault_key_id                = var.key_vault_name != "" ? data.azurerm_key_vault_key.this[0].versionless_id : null
+  mongo_server_version          = var.mongo_server_version
+  key_vault_key_id              = var.key_vault_name != "" ? data.azurerm_key_vault_key.this[0].versionless_id : null
 
   tags = local.tags
 
