@@ -24,7 +24,7 @@ resource "azurerm_monitor_diagnostic_setting" "la" {
     }
   }
 
-  metric {
+  enabled_metric {
     category = "AllMetrics"
   }
 }
@@ -72,7 +72,7 @@ resource "azurerm_monitor_diagnostic_setting" "sa" {
   }
 
 
-  metric {
+  enabled_metric {
     category = "AllMetrics"
   }
 }
@@ -103,7 +103,7 @@ resource "azurerm_monitor_diagnostic_setting" "eh" {
     }
   }
 
-  metric {
+  enabled_metric {
     category = "AllMetrics"
   }
 }
